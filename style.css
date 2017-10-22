@@ -1,0 +1,127 @@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@ GENERAL CSS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+p{
+	font-size: 13pt;
+	font-family: helvetica;
+	padding: 0;
+	margin: 0;
+}
+body { /* Ver dia.css e noite.css */
+} 
+li{
+	font-size: 13pt;
+	text-align: left;
+	padding: 1pt 3pt 1pt 2pt;
+	list-style: none;
+	font-family: helvetica;
+	font-weight:bold;
+	background-color:#202020;
+}
+
+/*@@@@@@@@@@@@@@@@@@@@@@@ CLASS ELEMENTS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+.icon{
+	height: 15pt;
+	width: 15pt;
+	float: left;
+}
+.ajuda_window{
+	position: absolute;
+	bottom:60%;
+	left:83%;
+	width: 165pt;
+}
+.jante{
+	height: 40pt;
+	width: 40pt;
+	opacity: 0.9;
+}
+.kit_menu_normal{
+	position: absolute;
+	bottom:42%;
+	left:70%;
+	width: 170pt;
+}
+.bi_menu_normal{
+	position: absolute;
+	bottom:42%;
+	left:70%;
+	width: 165pt;
+}
+.bi_menu_side{
+	position: absolute;
+	bottom: 42%;
+	left: 70%;
+	width: 60pt;
+}
+.bi_tarefa{
+	position: absolute;
+	bottom:42%;
+	left:70%;
+	padding:0pt;
+	width:200pt;
+}
+.bimby_extra1{
+	position:absolute;
+	bottom:42%;
+	left:40%;
+	width:165pt;
+}
+.sono_menu_normal{
+	position: absolute;
+	bottom:42%;
+	left:70%;
+	width: 165pt;
+}
+.sono_extra1{
+	position:absolute;
+	bottom:47%;
+	left:53%;
+	width:165pt;
+}
+.sono_extra2{
+	position:absolute;
+	bottom:60%;
+	left:70%;
+	width:165pt;
+}
+.sono_teste{
+	position:absolute;
+	bottom:42%;
+	left:70%;
+	width:165pt;
+}
+.escolherCores{
+	position: absolute;
+	bottom:0pt;
+	left:170pt;
+	width:60pt;
+}
+/*@@@@@@@@@@@@@@@@@@@@ INDIVIDUAL ELEMENTS (KITTADO) @@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/* Menus */
+#janteActualImg{		/*Imagem da jante actual*/
+	position: relative;
+	left: 25%;
+}
+#janteActual{
+	position: absolute;
+	bottom:51%;
+	left:72%;
+}
+#suspensao_holder{		/*antigo "suspensao", mudado para deixar coisas alinhadas*/
+	position: absolute;
+	bottom: 42%;
+	left: 53%;
+	width: 165pt;
+}
+#alterarJantes{
+	position: absolute;
+	bottom:42%;
+	left:76%;
+	width: 75pt;
+}
+#indicaComoIniciar{
+	position: absolute;
+	bottom: 42%;
+	left: 70%;
+}
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>KITT - grupo 8</title>
+		<meta charset="UTF-8"> 
+		<!-- CSS LINKING-->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link id="esquema" rel="stylesheet" type="text/css" href="dia.css" />
+	</head>
+	
+	<body onkeydown="test(event);" id="body">
+		<div style="visibility:hidden;width:1%;position:absolute;top:0%;left:0%;">
+			<ul id="escondido">
+			<li class="menu_title" ></li>
+			<li class="menu"></li>
+			</ul>
+		</div>
+		
+		<ul id="indicaComoIniciar" style="visibility:visible">
+			<li class="menu_title">OK para iniciar<img alt="lol" class="icon" src="Images/Icons/ok.png"></li>
+		</ul>
+		
+		<ul id="principal" class="kit_menu_normal" style="visibility:hidden">
+			<li class="menu_title" >KITT</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/carro.png">Modificar Automóvel</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/bimby_pan.png">Panela Inteligente</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/lua.png">Teste de Sonolência</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/janela.png">Controlar vidros</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/som.png">Controlar sistema Hi-Fi</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="ajuda_principal" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" >Ajuda:</li>
+			<li> Escolha uma das funcionalidades para interagir com o seu carro.
+			</li>
+		</ul>
+
+		<img alt="lol" style="position:absolute;bottom:7%;left:12%;height:5%;" src="Images/Icons/up.png">
+		<img alt="lol" style="position:absolute;bottom:2%;left:11%;height:5%;" src="Images/Icons/down.png">
+		<img alt="lol" style="position:absolute;bottom:2%;left:57%;height:5%;" src="Images/Icons/back.png">
+		<img alt="lol" style="position:absolute;bottom:7%;left:56%;height:5%;" src="Images/Icons/ok.png">
+		
+		<img alt="lol" id="imagem_funcion" style="position:absolute;bottom:43%;left:68%;width:3%;visibility:hidden" src="Images/Icons/icon_kitt.png">
+		
+		<p id="emMovimento" style="color:white;opacity:0.8;position:absolute;top:59%;left:70%">Veículo está parado. Pressionar M para pôr em movimento.</p>
+		
+		<!--
+		##############
+		kittado
+		##############
+		-->
+		<ul  id="suspensao_holder" class="kit_menu_normal" style="width:160pt">
+			<li id="suspensao" class="menu_title" >Modo: Conforto<img alt="lol" class="icon" src="Images/Icons/Suspensao.png"></li>
+		</ul>
+		
+		<ul id="inicial" class="kit_menu_normal" style="visibility:hidden">
+			<li class="menu_title" >Modificar Automóvel</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/pincel.png">Alterar Cores</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/jante.png">Alterar Jantes</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/Suspensao.png">Alterar Suspensão</li>
+			<li class="menu"><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="alterarCores" class="kit_menu_normal" style="visibility:hidden;">
+			<li class="menu_title" >Alterar Cores</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/carro.png">Cor exterior</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/volante.png">Cor interior</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/jante.png">Cor das jantes</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/favorito.png">Alterar cores favoritas</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		
+		<div id="janteActual" class="indicadores" style="visibility:hidden;">
+			<p>Jante Actual</p>
+			<img alt="lol" id="janteActualImg" class="jante" src="Images/Jantes/jante0.png">	
+		</div>
+		<ul id="alterarJantes" class="kit_menu_normal" style="visibility:hidden;">
+			<li class="menu_title" >Alterar Jantes</li>
+			<li ><p>1</p><img alt="lol" class="jante" src="Images/Jantes/jante0.png" style="position:relative; left:15%;right:50%; opacity: 0.65;"></li>
+			<li class="Selected"><p>2</p><img alt="lol" class="jante" src="Images/Jantes/jante1.png" style="position:relative; left:15%;right:50%;"></li>
+			<li><p>3</p><img alt="lol" class="jante" src="Images/Jantes/jante2.png" style="position:relative; left:15%;right:50%; opacity: 0.65;" ></li>
+		</ul>
+		
+		<div style="position:absolute;bottom:42%;left:70%">
+		<ul id="coresFavoritas" class="kit_menu_normal" style="visibility:hidden;position:absolute;left:0pt;bottom:0pt">
+			<li class="menu_title" >Actual | Cores Favoritas</li>
+			<li>Alterar Cor Fav.1<img alt="lol" class="icon"  src="Images/Cores/cor0.png"></li>
+			<li>Alterar Cor Fav.2<img alt="lol" class="icon"  src="Images/Cores/cor1.png"></li>
+			<li>Alterar Cor Fav.3<img alt="lol" class="icon"  src="Images/Cores/cor2.png"></li>
+			<li>Alterar Cor Fav.4<img alt="lol" class="icon"  src="Images/Cores/cor3.png"></li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul value="1" id="escolherCores" class="escolherCores"  style="visibility:hidden;float:right;">
+			<li class="menu_title" >Escolher Cores</li>
+			<li ><img alt="lol" class="jante" src="Images/Cores/cor0.png" style="position:relative; left:22%;right:50%; opacity: 1.0;width: 40pt;"></li>
+			<li class="Selected"><img alt="lol" class="jante" src="Images/Cores/cor1.png" style="position:relative; left:22%;right:50%;width: 40pt;opacity: 1.0;"></li>
+			<li><img alt="lol" class="jante" src="Images/Cores/cor2.png" style="position:relative; left:22%;right:50%; opacity: 1.0;width: 40pt;" ></li>
+		</ul>
+		<ul value="1" id="escolherCores2" class="escolherCores"  style="visibility:hidden;float:right;">
+			<li class="menu_title" >Escolher Cores</li>
+			<li ><img alt="lol" class="jante" src="Images/Cores/cor0.png" style="position:relative; left:22%;right:50%; opacity: 1.0;width: 40pt;"></li>
+			<li class="Selected"><img alt="lol" class="jante" src="Images/Cores/cor1.png" style="position:relative; left:22%;right:50%;width: 40pt;opacity: 1.0;"></li>
+			<li><img alt="lol" class="jante" src="Images/Cores/cor2.png" style="position:relative; left:22%;right:50%; opacity: 1.0;width: 40pt;" ></li>
+		</ul>
+		</div>
+		
+		<ul id="alterarSuspensao" class="kit_menu_normal" style="visibility:hidden;">
+			<li class="menu_title" >Alterar Suspensão</li>
+			<li>Conforto</li>
+			<li>Desportivo</li>
+			<li>Normal</li>
+			<li>Todo o Terreno</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<!-- @@@@@@@@@@@ CORES MENU's @@@@@@@@@@@@@ -->
+		
+		
+		<ul id="coresExterior" class="kit_menu_normal" style="visibility:hidden;">
+			<li class="menu_title" >Actual | Cor Exterior<img alt="lol" id="coresExteriorActual" class="icon" src="Images/Cores/cor1.png"></li>
+			<li>Cor Fav. 1<img alt="lol" class="icon"   src="Images/Cores/cor0.png"></li>
+			<li>Cor Fav. 2<img alt="lol" class="icon" src="Images/Cores/cor1.png"></li>
+			<li>Cor Fav. 3<img alt="lol" class="icon" src="Images/Cores/cor2.png"></li>
+			<li>Cor Fav. 4<img alt="lol" class="icon"  src="Images/Cores/cor3.png"></li>
+			<li>Todas as Cores</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="coresInterior" class="kit_menu_normal" style="visibility:hidden;">
+			<li class="menu_title" >Actual | Cor Interior<img alt="lol" id="coresInteriorActual" class="icon" src="Images/Cores/cor1.png"></li>
+			<li>Cor Fav. 1<img alt="lol" class="icon"  src="Images/Cores/cor0.png"></li>
+			<li>Cor Fav. 2<img alt="lol" class="icon"  src="Images/Cores/cor1.png"></li>
+			<li>Cor Fav. 3<img alt="lol" class="icon"  src="Images/Cores/cor2.png"></li>
+			<li>Cor Fav. 4<img alt="lol" class="icon"  src="Images/Cores/cor3.png"></li>
+			<li>Todas as Cores</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="coresJantes" class="kit_menu_normal" style="visibility:hidden;">
+			<li class="menu_title" >Actual | Cor das Jantes<img alt="lol" id="coresJantesActual" class="icon" src="Images/Cores/cor1.png"></li>
+			<li>Cor Fav. 1<img alt="lol" class="icon"  src="Images/Cores/cor0.png"></li>
+			<li>Cor Fav. 2<img alt="lol" class="icon"  src="Images/Cores/cor1.png"></li>
+			<li>Cor Fav. 3<img alt="lol" class="icon"  src="Images/Cores/cor2.png"></li>
+			<li>Cor Fav. 4<img alt="lol" class="icon"  src="Images/Cores/cor3.png"></li>
+			<li>Todas as Cores</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="ajuda_inicial" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Pode alterar diversos aspectos do seu veículo: cores, jantes e suspensões.</li>
+		</ul>
+		<ul id="ajuda_alterarCores" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Escolha, de entre as cores favoritas, a da pintura do seu veículo, dos estofos e das jantes. Pode modificar as cores favoritas para outras que mais lhe agradem.</li>
+		</ul>
+		<ul id="ajuda_coresFavoritas" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Defina as suas cores favoritas escolhendo de um variado leque.</li>
+		</ul>
+		<ul id="ajuda_coresExterior" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Mude a cor da pintura do carro para uma das cores favoritas.</li>
+		</ul>
+		<ul id="ajuda_coresInterior" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Mude a cor do interior do carro para uma das cores favoritas.</li>
+		</ul>
+		<ul id="ajuda_coresJantes" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Mude a cor das jantes para uma das cores favoritas.</li>
+		</ul>
+		<ul id="ajuda_alterarSuspensao" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Normal - em cidade.<br>
+			Conforto - para viagens, mais suave.<br>
+			Todo o Terreno - sobe o veículo para terrenos difíceis.<br>
+			Desportivo - rebaixa o veículo para pista.</li>
+		</ul>
+		
+		
+		<!--
+		##############
+		bimby
+		##############
+		-->
+		<ul id="bimby_main" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Panela Inteligente</li>
+			<li> Ingredientes<img alt="lol" class="icon" src="Images/bimby_pan.png"></li>
+			<li> Modo de cozinhar<img alt="lol" class="icon" src="Images/bimby_task.png"></li>
+			<li><p id="iniciar_botao" style="width:50pt;display:inline;">Iniciar</p>
+				<p id="panela_vazia" style="display:inline;position:absolute;right:5pt;">(panela vazia)</p>
+				<img alt="lol" id="ainiciar_botao" class="icon" style="display:inline;" src="Images/bimby_start.png">
+			</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		
+		<ul id="bimby_confirma_parar" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Parar cozedura?</li>
+			<li>Não, continuar</li>
+			<li>Sim, parar</li>
+		</ul>
+			
+		<ul id="bimby_panela" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Ingredientes</li>
+			<li><p id="botao_add_ingred" style="display:inline;" > Adicionar</p><img alt="lol" class="icon" src="Images/bimby_pan.png"></li>
+			<li><img alt="lol" class="icon" src="Images/Icons/bimby_esvaziar.png"><p id="botao_esvazia_ingred"> Panela vazia</p></li>
+			<li id="bimby_atalho_tarefa"><img alt="lol" class="icon" src="Images/bimby_task.png"> Ir para Modo de cozinhar</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		
+		<ul id="bimby_confirma_esvaziar" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Esvaziar panela?</li>
+			<li>Não</li>
+			<li>Sim</li>
+		</ul>
+		
+		<p id="lol1"></p>
+		<p id="lol2"></p>
+		<p id="lol3"></p>
+		<p id="lol4"></p>
+		<p id="lol5"></p>
+		
+		<div class="bi_tarefa">
+		<ul id="bimby_tarefa" class="bi_menu_normal" style="visibility:hidden;position:absolute;left:0pt;bottom:0pt;" >
+			<li class="menu_title" >Modo de cozinhar</li>
+			<li> Função<p id="funcao_preview" style="position:absolute;right:5pt;display:inline;">Cortar</p><img alt="lol" class="icon" src="Images/bimby_task.png"></li>
+			<li> Velocidade<p id="velocidade_preview" style="position:absolute;right:5pt;display:inline;">Lento</p><img alt="lol" class="icon" src="Images/Icons/bimby_speed.png"></li>
+			<li> Temperatura<p id="temperatura_preview" style="position:absolute;right:5pt;display:inline;">80ºC</p><img alt="lol" class="icon" src="Images/Icons/bimby_termo.png"> </li>
+			<li> Tempo<p id="tempo_preview" style="position:absolute;right:5pt;display:inline;">0h03m</p><img alt="lol" class="icon" src="Images/Icons/bimby_tempo.png"></li>
+			<li><p id="iniciar_botao2" style="width:50pt;display:inline;">Iniciar</p>
+				<p id="panela_vazia2" style="display:inline;position:absolute;right:5pt;">(panela vazia)</p>
+				<img alt="lol" id="ainiciar_botao2" class="icon" style="display:inline;" src="Images/bimby_start.png">
+			</li>
+			<li id="bimby_atalho_ingredientes"><img alt="lol" class="icon" src="Images/bimby_pan.png"> Ir para Ingredientes</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		
+		<!-- Tarefa - especificações -->
+		<ul id="bimby_temperatura" class="bi_menu_side" style="visibility:hidden;position:absolute;left:170pt;bottom:0pt" >
+			<!--<li class="menu_title" >Temperatura</li>-->
+			<li> </li>
+			<li> </li>
+			<li> </li>
+			<li> </li>
+			<li> </li>
+		</ul>
+		<ul id="bimby_tempo" class="bi_menu_side" style="visibility:hidden;position:absolute;left:170pt;bottom:0pt" >
+			<li> </li>
+			<li> </li>
+			<li> </li>
+			<li> </li>
+			<li> </li>
+		</ul>
+		</div>
+		
+		<ul id="bimby_funcao" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/bimby_task.png">Função</li>
+			<li> Cortar</li>
+			<li> Mexer</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="bimby_velocidade" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/bimby_speed.png">Velocidade</li>
+			<li> Lento</li>
+			<li> Médio</li>
+			<li> Rápido</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		
+		<!-- Panela - especificações -->
+		<ul id="bimby_add" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Adicionar</li>
+			<li> Pré-feitos</li>
+			<li> Carnes/Peixes</li>
+			<li> Gorduras</li>
+			<li> Lacticínios</li>
+			<li> Massas/Arroz</li>
+			<li> Temperos</li>
+			<li> Vegetais</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="bimby_carnes" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Carnes/Peixes</li>
+			<li class="ingrediente" >Porco</li>
+			<li class="ingrediente" >Vaca</li>
+			<li class="ingrediente" >Frango</li>
+			<li class="ingrediente" >Pato</li>
+			<li class="ingrediente" >Bacalhau</li>
+			<li class="ingrediente" >Pescada</li>
+		</ul>
+		<ul id="bimby_gorduras" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Gorduras</li>
+			<li class="ingrediente" >Banha</li>
+			<li class="ingrediente" >Manteiga</li>
+			<li class="ingrediente" >Margarina</li>
+			<li class="ingrediente" >Óleo</li>
+		</ul>
+		<ul id="bimby_leites" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Lacticínios</li>
+			<li class="ingrediente" >Leite</li>
+			<li class="ingrediente" >Mozzarella</li>
+			<li class="ingrediente" >Natas</li>
+			<li class="ingrediente" >Parmesão</li>
+		</ul>
+		<ul id="bimby_massas" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Massas/Arroz</li>
+			<li class="ingrediente" >Arroz</li>
+			<li class="ingrediente" >Esparguete</li>
+			<li class="ingrediente" >Fusilli</li>
+			<li class="ingrediente" >Estrela</li>
+		</ul>
+		<ul id="bimby_temperos" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Temperos</li>
+			<li class="ingrediente" >Alho</li>
+			<li class="ingrediente" >Pimenta</li>
+			<li class="ingrediente" >Rosmaninho</li>
+			<li class="ingrediente" >Sal</li>
+		</ul>
+		<ul id="bimby_vegetais" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Vegetais</li>
+			<li class="ingrediente" >Abóbora</li>
+			<li class="ingrediente" >Batata</li>
+			<li class="ingrediente" >Cenoura</li>
+			<li class="ingrediente" >Couve</li>
+			<li class="ingrediente" >Nabo</li>
+			<li class="ingrediente" >Tomate</li>
+		</ul>
+		<ul id="bimby_pre_feitos" class="bi_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Pré-feitos</li>
+			<li class="ingrediente" >Carbonara</li>
+			<li class="ingrediente" >Empadão de carne</li>
+			<li class="ingrediente" >Esparguete à bolonhesa</li>
+			<li class="ingrediente" >Mistura para fondue</li>
+			<li class="ingrediente" >Sopa</li>
+		</ul>
+		<div class="bi_tarefa">
+		<ul id="bimby_quantidades" class="bi_menu_side" style="visibility:hidden;position:absolute;left:170pt;bottom:0pt" >
+			<li> </li>
+			<li> </li>
+			<li> </li>
+			<li> </li>
+			<li> </li>
+		</ul>
+		</div>
+		
+		<!-- fim dos ingredientes-->
+		<!-- coisas -->
+		<ul id="relogio_digital" class="bimby_extra1" style="visibility:hidden">
+			<li class="menu_title"> Resta cozinhar: <div id="relogio_digital_numero" style="position:absolute;right:5pt;top:1.5pt;"></div></li>
+		</ul>
+		<ul id="bimby_terminado" class="bimby_extra1" style="visibility:hidden">
+			<li class="menu_title"> Fim da tarefa de cozinha</li>
+		</ul>
+		<div class="bi_tarefa">
+		<ul id="bimby_ingred_adicionado"  style="visibility:hidden;position:absolute;left:170pt;bottom:0pt">
+			<li class="menu_title"> Ingrediente adicionado</li>
+		</ul>
+		</div>
+		<!-- ajuda BIMBY-->
+		<ul id="ajuda_bimby_main" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Adicione Ingredientes, defina
+			o Modo de cozinhar e Inicie ou Pare
+			a tarefa de cozedura.
+			</li>
+		</ul>
+		<ul id="ajuda_bimby_panela" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Adicione os ingredientes à panela
+			e remova-os seleccionando-os, ou Esvazie totalmente
+			a panela.
+			</li>
+		</ul>
+		<ul id="ajuda_bimby_add" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Seleccione um ingrediente de uma das secções
+			para o adicionar à panela ou um conjunto de
+			ingredientes de um dos preparados de refeição.
+			</li>
+		</ul>
+		<ul id="ajuda_bimby_tarefa" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Seleccione a função, velocidade, tempo e temperatura
+			de cozedura. As alterações feitas durante a cozedura também serão
+			aplicadas.
+			</li>
+		</ul>
+		<ul id="ajuda_bimby_velocidade" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Seleccione a velocidade a que as pás/lâminas giram.
+			</li>
+		</ul>
+		<ul id="ajuda_bimby_funcao" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img alt="lol" class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Seleccione a função para a tarefa, de entre Cortar e Mexer.
+			</li>
+		</ul>
+		
+		
+		<!--
+		##############
+		sono
+		##############
+		-->
+		<ul id="sono_main" class="sono_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Teste de sonolência</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/bimby_tempo.png"><p id="fazerTesteSono">Fazer teste</p></li>
+			<li><img alt="lol" class="icon" src="Images/Icons/sono_taxi.png"> Chamar táxi</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		
+		<ul id="sono_taxi_confirmar" class="sono_menu_normal" style="visibility:hidden" >
+			<li class="menu_title" >Confirmar chamada do táxi?</li>
+			<li><img alt="lol" class="icon" src="Images/bimby_stop.png"> Não</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/sono_taxi.png"> Sim</li>
+			<li><img alt="lol" class="icon" src="Images/Icons/ajuda.png"><p class="ajudatog">Mostrar ajuda</p></li>
+		</ul>
+		<ul id="teste" class="sono_teste" style="visibility:hidden" >
+			<li class="menu_title" >Prepare-se <p id="sono_tempo_comecar"> 3</p></li>
+			<li> Para cancelar: Back</li>
+		</ul>
+		<ul id="teste_falhado" class="sono_extra1" style="visibility:hidden" >
+			<li class="menu_title"> Não está apto para conduzir.</li>
+		</ul>
+		<ul id="a_chamar_taxi" class="sono_extra1" style="visibility:hidden">
+			<li class="menu_title"> Táxi chamado</li>
+		</ul>
+		<ul id="teste_passado" class="sono_extra1" style="visibility:hidden">
+			<li class="menu_title"> Está apto para conduzir</li>
+		</ul>
+		<ul id="teste_tempo_restante" class="sono_extra2" style="visibility:hidden">
+			<li id="teste_passo_tempo" class="menu_title"></li>
+		</ul>
+		
+		<img alt="lol" id="teste_cima" style="position:absolute;top:10%;left:20%;height:5%;visibility:hidden;" src="Images/Icons/up.png">
+		<img id="teste_baixo" style="position:absolute;top:10%;left:20%;height:5%;visibility:hidden;" src="Images/Icons/down.png">
+		<img id="teste_direita" style="position:absolute;top:10%;left:50%;height:5%;visibility:hidden;" src="Images/Icons/ok.png">
+		
+		<!-- ajuda sono-->
+		<ul id="ajuda_sono_main" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img class="icon" src="Images/Icons/ajuda.png">Ajuda:</li>
+			<li>Chame um táxi ou faça o teste de sonolência
+			para verificar se está em estado de conduzir.
+			Para passar no teste tem que carregar nos botões
+			indicados no pára-brisas, rápido o suficiente.
+			</li>
+		</ul>
+		<ul id="ajuda_sono_taxi_confirmar" class="ajuda_window" style="visibility:hidden;">
+			<li class="menu_title" ><img class="icon" src="Images/Icons/ajuda.png">Mais informações:</li>
+			<li>A chamada a um táxi tem o custo de uma chamada de telemóvel
+			para a rede de destino.
+			</li>
+		</ul>
+		<audio loop id="radio" src="Images/grande_som.mp3"></audio>
+		
+		
+		<footer>
+			<!-- JS LINKING -->
+			<script src="Scripts/jquery.js"></script>
+			<script src="Scripts/mainScript.js" ></script>
+		</footer>
+	</body>
+</html>

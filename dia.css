@@ -1,0 +1,57 @@
+body { 
+	background: url('Images/cockpit_dia_x3.png') no-repeat center center fixed;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+li{
+	border: 1pt solid #FFCC00;
+	border-radius:5pt;
+	opacity: 0.6;
+	color: white; /*white?*/
+}
+li.menu_title{
+	color: white;	/*white?*/
+	border: solid #FFCC00;
+	border-radius:5pt;
+}
+li.menu{
+	color: white;	/*white?*/
+}
+li.Selected{
+	background-color: #FF4C00;
+	opacity: 0.6;
+}
+p{
+	color: white;	/*white?*/
+}
+.indicadores{		/* Divisões que não são menus por exemplo Alerts etc */
+	font-family: helvetica;
+	font-size: 13pt;
+	border: solid #FFCC00;
+	color: white;	/*white?*/
+	background-color: #202020;
+	font-weight:bold;
+	opacity: 0.5;
+	border-radius:5pt;
+}
+.ajuda_window{
+	color: white;
+	/*border: solid #FFCC00;
+	border-radius:5pt;
+	background-color: #FF4C00;
+	opacity: 0.6;*/
+}
+#indicaComoIniciar{
+	position: absolute;
+	bottom: 42%;
+	left: 70%;
+	font-family: helvetica;
+	font-size: 13pt;
+	/*border: solid #FFCC00;*/
+	color: white;	/*white?*/
+	font-weight:bold;
+	opacity: 0.9;
+	border-radius:5pt;
+}

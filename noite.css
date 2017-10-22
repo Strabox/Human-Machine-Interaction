@@ -1,0 +1,54 @@
+body { 
+	background: url('Images/cockpit_noite_x3.png') no-repeat center center fixed;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	o-background-size: cover;
+	background-size: cover;
+}
+li{
+	border: 1pt solid #47DA91;
+	border-radius:5pt;
+	opacity: 0.6;
+	color: white;
+}
+li.menu_title{
+	color: white;
+	border: solid #47DA91;
+	border-radius:5pt;
+}
+li.Selected{
+	background-color: #006B00;
+	opacity: 0.6;
+}
+p{
+	color: white;
+}
+.indicadores{		/* Divisões que não são menus por exemplo Alerts etc */
+	font-family: helvetica;
+	font-size: 13pt;
+	border: solid #47DA91;
+	background-color: #202020;
+	color: white;
+	font-weight:bold;
+	opacity: 0.5;
+	border-radius:5pt;
+}
+.ajuda_window{
+	color: white;
+	/*border: solid #47DA91;
+	border-radius:5pt;
+	background-color: #47DA91;
+	opacity: 0.6;*/
+}
+#indicaComoIniciar{
+	position: absolute;
+	bottom: 42%;
+	left: 70%;
+	font-family: helvetica;
+	font-size: 13pt;
+	/*border: solid #47DA91;*/
+	color: white;
+	font-weight:bold;
+	opacity: 0.5;
+	border-radius:5pt;
+}
