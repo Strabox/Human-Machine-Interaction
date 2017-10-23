@@ -1,7 +1,14 @@
 ﻿#IPM
 
+Project to 2013/2014 Human-Machine Interaction course of Bachelors Degree in Computer Science and Engineering 2nd Year @ Instituto Superior Técnico
+
 ## Goals
 
+Develop a computer-human GUI in Web context to emulate a Car's Heads Up Display (HUD)
+
+## Project Group
+
+- https://github.com/carboned4
 
 ## Instruções
 
