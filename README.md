@@ -1,4 +1,4 @@
-﻿#IPM
+﻿# IPM
 
 Project to 2013/2014 Human-Machine Interaction course of Bachelors Degree in Computer Science and Engineering 2nd Year @ Instituto Superior Técnico
 
